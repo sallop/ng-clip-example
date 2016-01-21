@@ -4,16 +4,25 @@
     <script src="zeroclipboard/dist/ZeroClipboard.js"></script>
     <script src="node_modules/ng-clip/src/ngClip.js"></script>
     <script src="main.js"></script>
+    <style>
+      body {
+        font-size: 40px;
+      }
+
+      tr {
+        font-size: 30px;
+      }
+    </style>
   </head>
  
   <body ng-controller="Ctrl">
     <pre>{{current}}</pre>
-    <table border="1">
+    <table border="1" cellpadding="16" cellspacing="16">
       <tr ng-repeat="datum in data track by $index">
         <td>{{$index}}</td>
         <td clip-copy="datum.email" clip-click="showText($index, datum.email)">{{datum.email}}</td>
         <td clip-copy="datum.password" clip-click="showText($index, datum.password)">{{datum.password}}</td>
-        <td clip-copy="datum.postcode" clip-click="showHyphen($index, datum.postcode)">{{datum.postcode | hyphen}}</td>
+        <td clip-copy="getHyphen(datum.postcode)" clip-click="showHyphen($index, datum.postcode)">{{datum.postcode | hyphen}}</td>
         <td clip-copy="datum.postcode" clip-click="showText($index, datum.postcode)">{{datum.postcode}}</td>
       </tr>
     </table>

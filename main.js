@@ -46,6 +46,9 @@ appClip.controller('Ctrl', function($scope, $http, $filter){
     $scope.current = index + " " + $filter('hyphen')(text);
 
   };
+  $scope.getHyphen = function(text){
+    return $filter('hyphen')(text);
+  };
 }).filter('hyphen', function(){
   return function(input){
     var a = input.slice(0,3);
